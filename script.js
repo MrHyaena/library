@@ -24,23 +24,23 @@ function createBook(object) {
   eachBook.classList.add("eachBook");
   library.appendChild(eachBook);
 
-  const bookAuthor = document.createElement("h2");
-  bookAuthor.textContent = object.author;
-  bookAuthor.classList.add("bookAuthor");
-  eachBook.appendChild(bookAuthor);
-
   const bookTitle = document.createElement("h2");
   bookTitle.textContent = object.title;
   bookTitle.classList.add("bookTitle");
   eachBook.appendChild(bookTitle);
 
-  const bookPages = document.createElement("h2");
-  bookPages.textContent = object.pages;
+  const bookAuthor = document.createElement("h3");
+  bookAuthor.textContent = "Author: " + object.author;
+  bookAuthor.classList.add("bookAuthor");
+  eachBook.appendChild(bookAuthor);
+
+  const bookPages = document.createElement("h3");
+  bookPages.textContent = "Pages: " + object.pages;
   bookPages.classList.add("bookPages");
   eachBook.appendChild(bookPages);
 
-  const bookStatus = document.createElement("h2");
-  bookStatus.textContent = object.status;
+  const bookStatus = document.createElement("h3");
+  bookStatus.textContent = "Status: " + object.status;
   bookStatus.classList.add("bookStatus");
   eachBook.appendChild(bookStatus);
 }

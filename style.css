@@ -1,5 +1,15 @@
 body {
   margin: 0;
+  color: rgb(112, 66, 1);
+}
+
+p,
+h3 {
+  margin: 5px;
+}
+
+h2 {
+  margin: 5px;
 }
 
 .container {
@@ -8,11 +18,10 @@ body {
 }
 
 #library {
-  background-color: rgb(235, 235, 235);
-  min-height: 600px;
   margin: 20px;
   box-sizing: border-box;
   display: grid;
+  gap: 30px;
 }
 
 .eachBook {
@@ -22,4 +31,9 @@ body {
   background: linear-gradient(to right, rgb(239, 192, 154), rgb(241, 216, 171));
   border-radius: 10px;
   padding: 10px;
+  box-shadow: 0 0 10px rgb(187, 187, 187);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
 }
