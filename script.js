@@ -7,13 +7,27 @@ function book(author, title, pages, status) {
   this.status = status;
 }
 
+const btnAddBook = document.querySelector("btnForm");
+const console = document.querySelector("#console");
+
+// Test data, adding few objects to library array
+
 const theHobbit = new book("JRR", "Hobbit", 250, "read");
 const LoTR = new book("Pes", "Hobbit", 250, "read");
-
 myLibrary.splice(0, 0, theHobbit);
 myLibrary.splice(0, 0, LoTR);
 
-console.log(myLibrary);
+document.getElementById("btnForm").addEventListener("click", showForm);
+
+function showForm() {
+  const formDiv = document.createElement("div");
+  formDiv.classList.add("formDiv");
+  console.appendChild(formDiv);
+
+  const form = document.createElement("form");
+  form.classList.add("form");
+  formDiv.appendChild(form);
+}
 
 const library = document.querySelector("#library");
 
