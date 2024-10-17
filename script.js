@@ -29,18 +29,33 @@ function createBook(object) {
   bookTitle.classList.add("bookTitle");
   eachBook.appendChild(bookTitle);
 
+  const labelAuthor = document.createElement("h3");
+  labelAuthor.textContent = "Author:";
+  labelAuthor.classList.add("labelAuthor");
+  eachBook.appendChild(labelAuthor);
+
   const bookAuthor = document.createElement("h3");
-  bookAuthor.textContent = "Author: " + object.author;
+  bookAuthor.textContent = object.author;
   bookAuthor.classList.add("bookAuthor");
   eachBook.appendChild(bookAuthor);
 
+  const labelPages = document.createElement("h3");
+  labelPages.textContent = "Pages:";
+  labelPages.classList.add("labelPages");
+  eachBook.appendChild(labelPages);
+
   const bookPages = document.createElement("h3");
-  bookPages.textContent = "Pages: " + object.pages;
+  bookPages.textContent = object.pages;
   bookPages.classList.add("bookPages");
   eachBook.appendChild(bookPages);
 
+  const labelStatus = document.createElement("h3");
+  labelStatus.textContent = "Status:";
+  labelStatus.classList.add("labelStatus");
+  eachBook.appendChild(labelStatus);
+
   const bookStatus = document.createElement("h3");
-  bookStatus.textContent = "Status: " + object.status;
+  bookStatus.textContent = object.status;
   bookStatus.classList.add("bookStatus");
   eachBook.appendChild(bookStatus);
 }
