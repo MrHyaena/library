@@ -27,6 +27,24 @@ function showForm() {
   const form = document.createElement("form");
   form.classList.add("form");
   formDiv.appendChild(form);
+
+  for (let i = 1; i < 5; i++) {
+    const inputLabel = document.createElement("label");
+    inputLabel.setAttribute("id", "label" + i);
+    inputLabel.setAttribute("for", "name" + i);
+    form.appendChild(inputLabel);
+
+    const inputName = document.createElement("input");
+    inputName.classList.add("input" + i);
+    inputName.setAttribute("name", "name" + i);
+    inputName.setAttribute("type", "text");
+    form.appendChild(inputName);
+  }
+
+  document.getElementById("label1").textContent = "Vložte text";
+  document.getElementById("label2").textContent = "Vložte text";
+  document.getElementById("label3").textContent = "Vložte text";
+  document.getElementById("label4").textContent = "Vložte text";
 }
 
 const library = document.querySelector("#library");
