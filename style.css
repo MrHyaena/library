@@ -4,6 +4,7 @@ body {
   --darker-grey: rgb(67, 67, 75);
   --lighter-grey: rgb(83, 82, 90);
   --dark-green: rgb(109, 124, 109);
+  --lighter-green: rgb(134, 168, 134);
 
   --spec-shadow: 0 0 3px rgb(0, 0, 0);
 }
@@ -97,7 +98,7 @@ input {
 
 #btnForm {
   padding: 20px 40px;
-  background-color: rgb(109, 124, 109);
+  background-color: var(--lighter-green);
   border-radius: 10px;
   box-shadow: 0 0 3px rgb(0, 0, 0);
   border-style: none;
@@ -105,6 +106,19 @@ input {
   font-weight: bold;
   color: white;
   width: 100%;
+}
+
+#sendButton {
+  padding: 20px 40px;
+  background-color: var(--lighter-green);
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+  border-style: none;
+  font-size: large;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .labelAuthor,

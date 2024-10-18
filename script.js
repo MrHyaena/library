@@ -45,6 +45,11 @@ function showForm() {
   document.getElementById("label2").textContent = "Book Author";
   document.getElementById("label3").textContent = "Number of pages";
   document.getElementById("label4").textContent = "Did you read it?";
+
+  const sendButton = document.createElement("button");
+  sendButton.setAttribute("id", "sendButton");
+  sendButton.textContent = "Add";
+  form.appendChild(sendButton);
 }
 
 const library = document.querySelector("#library");
