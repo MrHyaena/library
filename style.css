@@ -126,3 +126,8 @@ input {
 .labelPages {
   color: rgb(191, 205, 166);
 }
+
+#formContainer {
+  padding: 0px;
+  width: 100%;
+}

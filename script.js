@@ -9,6 +9,7 @@ function book(author, title, pages, status) {
 
 const btnAddBook = document.querySelector("btnForm");
 const console = document.querySelector("#console");
+const formContainer = document.querySelector("#formContainer");
 
 // Test data, adding few objects to library array
 
@@ -22,7 +23,7 @@ document.getElementById("btnForm").addEventListener("click", showForm);
 function showForm() {
   const formDiv = document.createElement("div");
   formDiv.classList.add("formDiv");
-  console.appendChild(formDiv);
+  formContainer.appendChild(formDiv);
 
   const form = document.createElement("form");
   form.classList.add("form");
@@ -48,8 +49,15 @@ function showForm() {
 
   const sendButton = document.createElement("button");
   sendButton.setAttribute("id", "sendButton");
+  sendButton.setAttribute("type", "submit");
   sendButton.textContent = "Add";
   form.appendChild(sendButton);
+
+  document.getElementById("sendButton").addEventListener("click", sendForm);
+
+  function sendForm() {
+    formContainer.innerHTML = "";
+  }
 }
 
 const library = document.querySelector("#library");
