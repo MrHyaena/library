@@ -1,10 +1,13 @@
 const myLibrary = [];
 
-function book(author, title, pages, status) {
+let bookIndex = 0;
+
+function book(title, author, pages, status, index) {
   this.author = author;
   this.title = title;
   this.pages = pages;
   this.status = status;
+  this.index = index;
 }
 
 const btnAddBook = document.querySelector("btnForm");
@@ -17,6 +20,8 @@ const theHobbit = new book("JRR", "Hobbit", 250, "read");
 const LoTR = new book("Pes", "Hobbit", 250, "read");
 myLibrary.splice(0, 0, theHobbit);
 myLibrary.splice(0, 0, LoTR);
+
+// HERE IT ENDS
 
 document.getElementById("btnForm").addEventListener("click", showForm);
 
@@ -49,15 +54,32 @@ function showForm() {
 
   const sendButton = document.createElement("button");
   sendButton.setAttribute("id", "sendButton");
-  sendButton.setAttribute("type", "submit");
+
   sendButton.textContent = "Add";
   form.appendChild(sendButton);
 
   document.getElementById("sendButton").addEventListener("click", sendForm);
+}
 
-  function sendForm() {
-    formContainer.innerHTML = "";
-  }
+function sendForm() {
+  const newBook = new book(
+    input1.value,
+    input1.value,
+    input1.value,
+    input1.value,
+    bookIndex
+  );
+  myLibrary.splice(0, 0, newBook);
+
+  input1.value = "";
+  input2.value = "";
+  input3.value = "";
+  input4.value = "";
+
+  bookIndex = bookIndex + 1;
+
+  myLibrary.map(createBook);
+  console.log(myLibrary);
 }
 
 const library = document.querySelector("#library");
