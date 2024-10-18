@@ -41,10 +41,10 @@ function showForm() {
     form.appendChild(inputName);
   }
 
-  document.getElementById("label1").textContent = "Vložte text";
-  document.getElementById("label2").textContent = "Vložte text";
-  document.getElementById("label3").textContent = "Vložte text";
-  document.getElementById("label4").textContent = "Vložte text";
+  document.getElementById("label1").textContent = "Book Title";
+  document.getElementById("label2").textContent = "Book Author";
+  document.getElementById("label3").textContent = "Number of pages";
+  document.getElementById("label4").textContent = "Did you read it?";
 }
 
 const library = document.querySelector("#library");
