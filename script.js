@@ -1,18 +1,5 @@
 const myLibrary = [];
-
 let bookIndex = 0;
-
-function book(title, author, pages, status, index) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.status = status;
-  this.index = index;
-}
-
-const btnAddBook = document.querySelector("btnForm");
-const controls = document.querySelector("#controls");
-const formContainer = document.querySelector("#formContainer");
 
 // Test data, adding few objects to library array
 
@@ -22,6 +9,23 @@ myLibrary.splice(0, 0, theHobbit);
 myLibrary.splice(0, 0, LoTR);
 
 // HERE IT ENDS
+
+// Constructor for creating objects - book
+
+function book(title, author, pages, status, index) {
+  this.author = author;
+  this.title = title;
+  this.pages = pages;
+  this.status = status;
+  this.index = bookIndex;
+}
+
+const btnAddBook = document.querySelector("btnForm");
+const controls = document.querySelector("#controls");
+const formContainer = document.querySelector("#formContainer");
+const library = document.querySelector("#library");
+
+myLibrary.map(createBook);
 
 document.getElementById("btnForm").addEventListener("click", showForm);
 
@@ -60,6 +64,9 @@ function showForm() {
   document.getElementById("sendButton").addEventListener("click", sendForm);
 }
 
+// Function for Add button - Sending the form inputs
+//      and refreshing library div and formContainer div
+
 function sendForm() {
   dataTitle = document.getElementById("input1").value;
   dataAuthor = document.getElementById("input2").value;
@@ -75,7 +82,7 @@ function sendForm() {
     dataStatus,
     bookIndex
   );
-  myLibrary.splice(0, 0, newBook);
+  myLibrary.splice(myLibrary.length, 0, newBook);
 
   document.getElementById("input1").value = "";
   document.getElementById("input2").value = "";
@@ -90,9 +97,7 @@ function sendForm() {
   console.log(myLibrary);
 }
 
-const library = document.querySelector("#library");
-
-myLibrary.map(createBook);
+// Function for creating objects in DOM
 
 function createBook(object) {
   const eachBook = document.createElement("div");
