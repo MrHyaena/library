@@ -11,7 +11,7 @@ function book(title, author, pages, status, index) {
 }
 
 const btnAddBook = document.querySelector("btnForm");
-const console = document.querySelector("#console");
+const controls = document.querySelector("#controls");
 const formContainer = document.querySelector("#formContainer");
 
 // Test data, adding few objects to library array
@@ -41,7 +41,7 @@ function showForm() {
     form.appendChild(inputLabel);
 
     const inputName = document.createElement("input");
-    inputName.classList.add("input" + i);
+    inputName.setAttribute("id", "input" + i);
     inputName.setAttribute("name", "name" + i);
     inputName.setAttribute("type", "text");
     form.appendChild(inputName);
@@ -56,29 +56,37 @@ function showForm() {
   sendButton.setAttribute("id", "sendButton");
 
   sendButton.textContent = "Add";
-  form.appendChild(sendButton);
-
+  formContainer.appendChild(sendButton);
   document.getElementById("sendButton").addEventListener("click", sendForm);
 }
 
 function sendForm() {
+  dataTitle = document.getElementById("input1").value;
+  dataAuthor = document.getElementById("input2").value;
+  dataPages = document.getElementById("input3").value;
+  dataStatus = document.getElementById("input4").value;
+
+  console.log(dataTitle);
+
   const newBook = new book(
-    input1.value,
-    input1.value,
-    input1.value,
-    input1.value,
+    dataTitle,
+    dataAuthor,
+    dataPages,
+    dataStatus,
     bookIndex
   );
   myLibrary.splice(0, 0, newBook);
 
-  input1.value = "";
-  input2.value = "";
-  input3.value = "";
-  input4.value = "";
+  document.getElementById("input1").value = "";
+  document.getElementById("input2").value = "";
+  document.getElementById("input3").value = "";
+  document.getElementById("input4").value = "";
 
   bookIndex = bookIndex + 1;
-
+  formContainer.innerHTML = "";
+  library.innerHTML = "";
   myLibrary.map(createBook);
+
   console.log(myLibrary);
 }
 
