@@ -1,23 +1,24 @@
 const myLibrary = [];
 let bookIndex = 0;
 
-// Test data, adding few objects to library array
+// Test data, adding few mybooks to library array
 
-const theHobbit = new book("JRR", "Hobbit", 250, "read");
-const LoTR = new book("Pes", "Hobbit", 250, "read");
+const theHobbit = new book("JRR", "Hobbit", 250, "Read");
+const LoTR = new book("Pes", "Hobbit", 250, "Read");
 myLibrary.splice(0, 0, theHobbit);
 myLibrary.splice(0, 0, LoTR);
 
 // HERE IT ENDS
 
-// Constructor for creating objects - book
+// Constructor for creating mybooks - book
 
-function book(title, author, pages, status, index) {
+function book(title, author, pages, status, bookIndex, statusIndex) {
   this.author = author;
   this.title = title;
   this.pages = pages;
+  this.statusIndex = statusIndex;
   this.status = status;
-  this.index = bookIndex;
+  this.bookIndex = bookIndex;
 }
 
 const btnAddBook = document.querySelector("btnForm");
@@ -61,15 +62,15 @@ function showForm() {
   statusInput.setAttribute("name", "name4");
   form.appendChild(statusInput);
 
-  const option1 = document.createElement("option");
-  option1.setAttribute("value", "Read");
-  option1.textContent = "Read";
-  statusInput.appendChild(option1);
-
   const option2 = document.createElement("option");
   option2.setAttribute("value", "Not Read");
   option2.textContent = "Not Read";
   statusInput.appendChild(option2);
+
+  const option1 = document.createElement("option");
+  option1.setAttribute("value", "Read");
+  option1.textContent = "Read";
+  statusInput.appendChild(option1);
 
   document.getElementById("label1").textContent = "Book Title";
   document.getElementById("label2").textContent = "Book Author";
@@ -100,7 +101,8 @@ function sendForm() {
     dataAuthor,
     dataPages,
     dataStatus,
-    bookIndex
+    bookIndex,
+    0
   );
   myLibrary.splice(myLibrary.length, 0, newBook);
 
@@ -117,15 +119,15 @@ function sendForm() {
   console.log(myLibrary);
 }
 
-// Function for creating objects in DOM
+// Function for creating mybookss in DOM
 
-function createBook(object) {
+function createBook(mybooks) {
   const eachBook = document.createElement("div");
   eachBook.classList.add("eachBook");
   library.appendChild(eachBook);
 
   const bookTitle = document.createElement("h2");
-  bookTitle.textContent = object.title;
+  bookTitle.textContent = mybooks.title;
   bookTitle.classList.add("bookTitle");
   eachBook.appendChild(bookTitle);
 
@@ -135,7 +137,7 @@ function createBook(object) {
   eachBook.appendChild(labelAuthor);
 
   const bookAuthor = document.createElement("h3");
-  bookAuthor.textContent = object.author;
+  bookAuthor.textContent = mybooks.author;
   bookAuthor.classList.add("bookAuthor");
   eachBook.appendChild(bookAuthor);
 
@@ -145,7 +147,7 @@ function createBook(object) {
   eachBook.appendChild(labelPages);
 
   const bookPages = document.createElement("h3");
-  bookPages.textContent = object.pages;
+  bookPages.textContent = mybooks.pages;
   bookPages.classList.add("bookPages");
   eachBook.appendChild(bookPages);
 
@@ -155,7 +157,7 @@ function createBook(object) {
   eachBook.appendChild(labelStatus);
 
   const bookStatus = document.createElement("h3");
-  bookStatus.textContent = object.status;
+  bookStatus.textContent = mybooks.status;
   bookStatus.classList.add("bookStatus");
   eachBook.appendChild(bookStatus);
 
@@ -165,7 +167,26 @@ function createBook(object) {
   eachBook.appendChild(deleteButton);
 
   deleteButton.addEventListener("click", () => {
-    myLibrary.splice(myLibrary.indexOf(object), 1);
+    myLibrary.splice(myLibrary.indexOf(mybooks), 1);
+    console.log(myLibrary);
+    library.innerHTML = "";
+    myLibrary.map(createBook);
+  });
+
+  const statusButton = document.createElement("button");
+  statusButton.setAttribute("id", "statusButton");
+  statusButton.textContent = "Change Status";
+  eachBook.appendChild(statusButton);
+
+  statusButton.addEventListener("click", () => {
+    console.log(mybooks.statusIndex);
+    if (mybooks.statusIndex == 1) {
+      Object.defineProperty(mybooks, "status", { value: "Not Read" });
+      Object.defineProperty(mybooks, "statusIndex", { value: 0 });
+    } else {
+      Object.defineProperty(mybooks, "status", { value: "Read" });
+      Object.defineProperty(mybooks, "statusIndex", { value: 1 });
+    }
     console.log(myLibrary);
     library.innerHTML = "";
     myLibrary.map(createBook);
