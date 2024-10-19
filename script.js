@@ -138,4 +138,18 @@ function createBook(object) {
   bookStatus.textContent = object.status;
   bookStatus.classList.add("bookStatus");
   eachBook.appendChild(bookStatus);
+
+  const deleteButton = document.createElement("button");
+  deleteButton.setAttribute("id", "deleteButton");
+  deleteButton.textContent = "Remove";
+  eachBook.appendChild(deleteButton);
+
+  deleteButton.addEventListener("click", () => {
+    myLibrary.splice(myLibrary.indexOf(object), 1);
+    console.log(myLibrary);
+    library.innerHTML = "";
+    myLibrary.map(createBook);
+  });
 }
+
+// Function for removing books from library
