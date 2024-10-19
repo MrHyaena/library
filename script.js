@@ -38,7 +38,7 @@ function showForm() {
   form.classList.add("form");
   formDiv.appendChild(form);
 
-  for (let i = 1; i < 5; i++) {
+  for (let i = 1; i < 4; i++) {
     const inputLabel = document.createElement("label");
     inputLabel.setAttribute("id", "label" + i);
     inputLabel.setAttribute("for", "name" + i);
@@ -50,6 +50,26 @@ function showForm() {
     inputName.setAttribute("type", "text");
     form.appendChild(inputName);
   }
+
+  const statusLabel = document.createElement("label");
+  statusLabel.setAttribute("id", "label4");
+  statusLabel.setAttribute("for", "name4");
+  form.appendChild(statusLabel);
+
+  const statusInput = document.createElement("select");
+  statusInput.setAttribute("id", "input4");
+  statusInput.setAttribute("name", "name4");
+  form.appendChild(statusInput);
+
+  const option1 = document.createElement("option");
+  option1.setAttribute("value", "Read");
+  option1.textContent = "Read";
+  statusInput.appendChild(option1);
+
+  const option2 = document.createElement("option");
+  option2.setAttribute("value", "Not Read");
+  option2.textContent = "Not Read";
+  statusInput.appendChild(option2);
 
   document.getElementById("label1").textContent = "Book Title";
   document.getElementById("label2").textContent = "Book Author";
