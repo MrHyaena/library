@@ -3,10 +3,13 @@ let bookIndex = 0;
 
 // Test data, adding few mybooks to library array
 
-const theHobbit = new book("JRR", "Hobbit", 250, "Read");
-const LoTR = new book("Pes", "Hobbit", 250, "Read");
+const theHobbit = new book(
+  "The Lord of the Rings",
+  "J.R.R. Tolkien",
+  250,
+  "Not Read"
+);
 myLibrary.splice(0, 0, theHobbit);
-myLibrary.splice(0, 0, LoTR);
 
 // HERE IT ENDS
 
