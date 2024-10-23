@@ -3,25 +3,19 @@ let bookIndex = 0;
 
 // Test data, adding few mybooks to library array
 
-const theHobbit = new book(
-  "The Lord of the Rings",
-  "J.R.R. Tolkien",
-  250,
-  "Not Read"
-);
-myLibrary.splice(0, 0, theHobbit);
-
 // HERE IT ENDS
 
 // Constructor for creating mybooks - book
 
-function book(title, author, pages, status, bookIndex, statusIndex) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.statusIndex = statusIndex;
-  this.status = status;
-  this.bookIndex = bookIndex;
+class book {
+  constructor(title, author, pages, status, bookIndex, statusIndex) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.statusIndex = statusIndex;
+    this.status = status;
+    this.bookIndex = bookIndex;
+  }
 }
 
 const btnAddBook = document.querySelector("btnForm");
