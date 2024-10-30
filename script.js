@@ -34,6 +34,7 @@ function showForm() {
 
   const form = document.createElement("form");
   form.classList.add("form");
+  form.setAttribute("id", "addingForm");
   formDiv.appendChild(form);
 
   for (let i = 1; i < 4; i++) {
@@ -76,10 +77,31 @@ function showForm() {
 
   const sendButton = document.createElement("button");
   sendButton.setAttribute("id", "sendButton");
-
   sendButton.textContent = "Add";
-  formContainer.appendChild(sendButton);
-  document.getElementById("sendButton").addEventListener("click", sendForm);
+  sendButton.setAttribute("type", "submit");
+  form.appendChild(sendButton);
+
+  const input3 = document.getElementById("input3");
+  input3.setAttribute("type", "number");
+  input3.addEventListener("input", () => {
+    if (input3.validity.typeMismatch) {
+      input3.setCustomValidity("I am expecting a number");
+    } else {
+      input3.setCustomValidity("");
+    }
+  });
+
+  const input1 = document.getElementById("input1");
+  input1.required = true;
+  input1.addEventListener("input", () => {
+    if (input1.validity.valid) {
+      input1.setCustomValidity("");
+    } else {
+      input1.setCustomValidity("I am expecting a number");
+    }
+  });
+
+  document.getElementById("addingForm").addEventListener("submit", sendForm);
 }
 
 // Function for Add button - Sending the form inputs
